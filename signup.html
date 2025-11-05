@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Signup - Alumni Connect</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script src="firebase.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Create Account</h2>
+    <input type="text" id="name" placeholder="Full Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <select id="role">
+      <option value="student">Student</option>
+      <option value="alumni">Alumni</option>
+      <option value="institute">Institute</option>
+    </select>
+    <button onclick="signup()">Signup</button>
+    <p class="error" id="error"></p>
+    <p>Already have an account? <a href="login.html">Login</a></p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script src="firebase.js"></script>
+</head>
+<body>
+  <div class="container dashboard">
+    <h2>🎓 Student Dashboard</h2>
+    <div class="card" id="profile">
+      <h3>My Profile</h3>
+      <p><b>Name:</b> <span id="name"></span></p>
+      <p><b>Email:</b> <span id="email"></span></p>
+      <p><b>Department:</b> <input id="dept" placeholder="Enter Department"></p>
+      <p><b>Year:</b> <input id="year" placeholder="Batch Year"></p>
+      <button onclick="updateProfile()">Update Profile</button>
+    </div>
+    <button onclick="logout()">Logout</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
