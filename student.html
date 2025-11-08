@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Student Profile | AKTU Style</title>
+  <title>Student Dashboard</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
@@ -10,45 +10,18 @@
   <script src="firebase.js"></script>
 </head>
 <body>
-  <div class="dashboard">
-    <h2>🎓 Student Profile</h2>
-
-    <div class="profile-card">
-      <div class="profile-header">
-        <img id="profilePic" src="https://via.placeholder.com/120" alt="Profile">
-        <div>
-          <h3 id="studentName">Student Name</h3>
-          <p id="rollNo">Roll No: -</p>
-        </div>
-      </div>
-
-      <div class="profile-body">
-        <label>Email:</label>
-        <input id="email" type="email" disabled>
-
-        <label>Course:</label>
-        <input id="course" placeholder="e.g., B.Tech CSE">
-
-        <label>Department:</label>
-        <input id="department" placeholder="e.g., Computer Science">
-
-        <label>Year:</label>
-        <input id="year" placeholder="e.g., 2025">
-
-        <label>Phone:</label>
-        <input id="phone" placeholder="Enter Phone Number">
-
-        <label>Address:</label>
-        <textarea id="address" rows="2" placeholder="Enter Address"></textarea>
-      </div>
-
-      <div class="profile-footer">
-        <button class="save-btn" onclick="updateProfile()">💾 Save Profile</button>
-        <button class="logout-btn" onclick="logout()">🚪 Logout</button>
-      </div>
+  <div class="container dashboard">
+    <h2>🎓 Student Dashboard</h2>
+    <div class="card" id="profile">
+      <h3>My Profile</h3>
+      <p><b>Name:</b> <span id="name"></span></p>
+      <p><b>Email:</b> <span id="email"></span></p>
+      <p><b>Department:</b> <input id="dept" placeholder="Enter Department"></p>
+      <p><b>Year:</b> <input id="year" placeholder="Batch Year"></p>
+      <button onclick="updateProfile()">Update Profile</button>
     </div>
+    <button onclick="logout()">Logout</button>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
