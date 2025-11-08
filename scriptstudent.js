@@ -1,11 +1,11 @@
 // firebase.js
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyBSZhXbK-24REZvisLK_vs81dDG5Ivm-GE",
+  authDomain: "alumnihub-dea19.firebaseapp.com",
+  projectId: "alumnihub-dea19",
+  storageBucket: "alumnihub-dea19.firebasestorage.app",
+  messagingSenderId: "414163639977",
+  appId: "1:414163639977:web:c1c4759e5c61b377f153b8"
 };
 
 firebase.initializeApp(firebaseConfig);
