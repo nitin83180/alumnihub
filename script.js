@@ -89,4 +89,56 @@ function updateAlumniProfile() {
   db.collection("users").doc(user.uid).update({ company, designation })
     .then(() => alert("Profile updated!"));
 }
+// Load current student data
+auth.onAuthStateChanged(async (user) => {
+  if (user) {
+    document.getElementById("email").value = user.email;
+    document.getElementById("studentName").innerText = user.displayName || "Student Name";
+    document.getElementById("rollNo").innerText = "Roll No: " + (user.uid.slice(0, 8).toUpperCase());
+
+    const docRef = db.collection("students").doc(user.uid);
+    const docSnap = await docRef.get();
+
+    if (docSnap.exists) {
+      const data = docSnap.data();
+      document.getElementById("course").value = data.course || "";
+      document.getElementById("department").value = data.department || "";
+      document.getElementById("year").value = data.year || "";
+      document.getElementById("phone").value = data.phone || "";
+      document.getElementById("address").value = data.address || "";
+
+      if (data.profilePic) {
+        document.getElementById("profilePic").src = data.profilePic;
+      }
+    }
+  } else {
+    window.location.href = "login.html";
+  }
+});
+
+// Update Firestore with student info
+async function updateProfile() {
+  const user = auth.currentUser;
+  if (!user) return alert("Not logged in");
+
+  const studentData = {
+    email: user.email,
+    name: user.displayName || "Student",
+    rollNo: user.uid.slice(0, 8).toUpperCase(),
+    course: document.getElementById("course").value.trim(),
+    department: document.getElementById("department").value.trim(),
+    year: document.getElementById("year").value.trim(),
+    phone: document.getElementById("phone").value.trim(),
+    address: document.getElementById("address").value.trim(),
+    profilePic: document.getElementById("profilePic").src
+  };
+
+  await db.collection("students").doc(user.uid).set(studentData, { merge: true });
+  alert("✅ Profile updated successfully!");
+}
+
+// Logout
+function logout() {
+  auth.signOut().then(() => window.location.href = "login.html");
+}
 
